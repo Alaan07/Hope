@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar .top-nav .logo .logoh2{
+  font-family: "Matemasie", sans-serif;
+  color: rgb(31, 156, 31);
+  font-size: 2.5rem;
+  margin-left: 20px;
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: 3px solid rgb(214, 212, 212);
+}
+.top-nav{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.startAndLogin {
+  margin-right: 20px;
 }
 
-.card {
-  padding: 2em;
+.category, .categoryList{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.categoryList li{
+  margin: 0 20px;
+  list-style-type: none;
+  font-size: 1.2rem;
+}
+
+.btn{
+  height: 3.5em;
+  width: 10em;
+  border-radius: 5px;
+  margin: 5px 5px;
+  color: rgb(111, 110, 110);
+  border-color: rgb(171, 168, 168);
+  background-color: transparent;
+  font-weight: bolder;
+  font-size: .8rem;
+}
+
+.btn:hover{
+  color: black;
+  border-color: black;
+}
+
+.searchBar{
+  box-shadow: 1px 3px 20px rgb(194, 191, 191);
+  border: 2px solid rgb(161, 155, 155);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.searchBar .searchInput{
+  width: 35em;
+  height: 3.5em;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+} 
+.searchIcon{
+  height: 3.5em;
+  background-color: transparent;
+  padding: 0 10px;
+  border: none;
+
 }
