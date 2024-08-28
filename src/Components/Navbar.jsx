@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaSearch } from 'react-icons/fa'
 
 function Navbar() {
   return (
@@ -8,7 +9,7 @@ function Navbar() {
                 <h2 className='logoh2'>HOPE</h2>
             </div>
             <div className='searchBar'>
-                <button className='searchIcon'>search</button>
+                <button className='searchIcon'><FaSearch className='fasearch_icon'/></button>
                 <input className='searchInput'  type="text" placeholder='Search projects, Creators and Categories' />
             </div>
             <div className='startAndLogin'>
