@@ -36,6 +36,8 @@
   padding-bottom: 10px;
   width: 100%;
   border-bottom: 3px solid rgb(214, 212, 212);
+  background-color: white;
+  z-index: 99;
 }
 .top-nav{
   display: flex;
@@ -61,6 +63,7 @@
 .categoryList li{
   margin: 0 20px;
   list-style-type: none;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
@@ -189,4 +192,167 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 10px  0;
+}
+
+.newProjects{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.featuredProjects{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.thumnaildiv, .previewVideo{
+  width: 100%;
+  border-radius: 5px;
+}
+.projectData{
+  padding: 10px 0;
+  display: flex;
+  width: 100%;
+}
+ .bookmarkicon{
+  width: 10%;
+  padding: 5px;
+  text-align: center;
+}
+.dpblock{
+  width: 10%;
+  padding: 5px;
+  text-align: center;
+}
+.projectdp{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.projectdp .profiledp{
+width: 40px;
+height: 40px;
+border-radius: 50%;
+object-fit: cover;
+}
+.projectDetails{
+  width: 80%;
+  padding: 5px;
+}
+.categoryAndlocation, .projectDiscription, .timeAndfunding{
+  padding: 10px 0;
+}
+
+.recommendedProjects{
+  width: 50%;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.featuredTitle, .recommendedTitle{
+  color: var(--normal-text-clr);
+  padding: 10px 0;
+}
+
+.toprow, .bottomrow{
+  display: flex;
+  justify-content: center;
+  padding-left:  4px;
+  padding-right:  4px;
+  padding-bottom: 10px;
+  
+}
+
+.card1,.card3{
+  padding-left: 10px;
+  padding-right: 20px;
+
+}
+.card2,.card4{
+  padding-left: 20px;
+  padding-right: 10px;
+  
+}
+.card .dpblock{
+  width: 25%;
+}
+.card .bookmarkicon{
+  width: 25%;
+}
+.card .projectTitle{
+  width: 130px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .timeAndfunding{
+  width: 130px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .projectName{
+  width: 130px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .projectDiscription{
+  padding: 0;
+  height: 0;
+  text-wrap: balance;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* *****need to create a div which holds both buttons and discription and try to use z-index / positions*/
+.card:hover .projectDiscription{
+  padding: 10px 0;
+  height: 180px;
+  overflow: visible;
+}
+
+/* ******************************************* */
+.newsANDevents{
+  margin: 80px 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.newsbanner{
+  width: 50%;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.newsbanner .hopebanner{
+  width: 100%;
+  object-fit: contain;
+}
+.newsupdates{
+  width: 50%;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.newsANDeventsheading{
+  font-size: 2rem;
+  color: var(--heading-clr);
+  padding: 10px 10px;
+}
+.newsANDeventsdetails{
+  font-size: 1.2rem;
+  color: var(--heading-clr);
+  padding: 10px 10px;
+}
+.newsReadmore{
+  font-size: 1rem;
+  padding:0 10px;
 }
