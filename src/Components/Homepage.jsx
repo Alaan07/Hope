@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import HopeImage from '../assets/image/hope2.png'
 import Itachi from '../assets/image/itachi.jpg'
 import Navbar from './Navbar.jsx'
+import Footer from './Footer.jsx'
 import { FaBookmark, FaHeart } from 'react-icons/fa'
 import VideoFile from '../assets/video/solo.mp4'
 
@@ -242,14 +243,31 @@ function Homepage() {
                 </div>
           </div>
 
+          <div className='recentProjects'>
+              <div className='recentprojectsHeading'>
+                  <h3 className='recentProjectsTitle'> NEW PROJECTS</h3>
+              </div>
+
+          </div>
+          <div className='takingoff'>
+              <div className='takingoffHeading'>
+                  <h3 className='takingoffTitle'> TAKING OFF</h3>
+              </div>
+
+          </div>
+
 
 
 
         </div>
       </div>
+
+      <div>
+        <Footer/>
+      </div>
+
     </div>
   )
 }
-
 
 export default Homepage

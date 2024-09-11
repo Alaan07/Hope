@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 
 function Navbar() {
@@ -14,7 +15,7 @@ function Navbar() {
             </div>
             <div className='startAndLogin'>
                 <button className='btn startProject'>Start a project</button>
-                <button className='btn Login'>Login</button>
+                <button className='btn Login'><Link to={'/login'}>Login</Link></button>
             </div>
       </div>
       <div className='category'>
