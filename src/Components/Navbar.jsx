@@ -14,8 +14,8 @@ function Navbar() {
                 <input className='searchInput'  type="text" placeholder='Search projects, Creators and Categories' />
             </div>
             <div className='startAndLogin'>
-                <button className='btn startProject'>Start a project</button>
-                <button className='btn Login'><Link to={'/login'}>Login</Link></button>
+                <button className='btn'><Link className='navstartProject' >Start project</Link></button>
+                <button className='btn'><Link className='navLoginlink' to={'/login'}>Login</Link></button>
             </div>
       </div>
       <div className='category'>

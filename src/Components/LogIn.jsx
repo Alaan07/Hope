@@ -25,8 +25,8 @@ function LogIn() {
           </div>
           <div className="loginformdiv">
             <form className="loginform">
-              <input type="text" placeholder="Email"/>
-              <input type="password" placeholder="Password"/>
+              <input className="loginemail" type="text" placeholder="Email"/>
+              <input className="loginpassword" type="password" placeholder="Password"/>
               <button className="loginbtn">
                 Log in
               </button>
@@ -42,7 +42,7 @@ function LogIn() {
             </div>
 
             <div className="continuepart">
-              <p>
+              <p className="contiptag">
                 or <span className="continuetxt">Continue</span> with
               </p>
 

@@ -13,17 +13,17 @@ function SignIn() {
             </div>
             <div className="registerformdiv">
               <form className="registerform">
-                <input type="text" placeholder="Username"/>
-                <input type="text" placeholder="Email" />
-                <input type="password" placeholder="Password"/>
-                <input type="password" placeholder="Confirm Password" />
+                <input className="registerusename" type="text" placeholder="Username"/>
+                <input className="registeremail" type="text" placeholder="Email" />
+                <input className="registerpassword" type="password" placeholder="Password"/>
+                <input className="registerconfirmpassword" type="password" placeholder="Confirm Password" />
                 <button
                   className="registerbtn"> Sign In
                 </button>
               </form>
 
               <div className="continuepart">
-                <p>
+                <p className="contiptag">
                   or <span className="continuetxt">Continue</span> with
                 </p>
 
@@ -46,7 +46,7 @@ function SignIn() {
                   </Link>
                 </p>
                 <p className="registerTandCpart">
-                  By clicking the above login, you agree to our{" "}
+                  By clicking the above login, you agree to our
                   <span className="registerunderline">Terms & Tonditions.</span>
                 </p>
               </div>
