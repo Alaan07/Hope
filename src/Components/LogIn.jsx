@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { FaBackward, FaInstagram, FaGoogle, FaTwitter } from "react-icons/fa";
 
 function LogIn() {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const handleloginClick = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+
+
   return (
     <div className="logincontainer">
       <div className="loginfirstbox">
@@ -24,10 +33,10 @@ function LogIn() {
             <h1 className="logintitle">Login</h1>
           </div>
           <div className="loginformdiv">
-            <form className="loginform">
-              <input className="loginemail" type="text" placeholder="Email"/>
-              <input className="loginpassword" type="password" placeholder="Password"/>
-              <button className="loginbtn">
+            <form className="loginform" >
+              <input className="loginemail" type="text" placeholder="Email" value={email} onChange={(e)=>setemail(e.target.value)}/>
+              <input className="loginpassword" type="password" placeholder="Password" value={password} onChange={(e)=>setpassword(e.target.value)}/>
+              <button className="loginbtn" onClick={handleloginClick}>
                 Log in
               </button>
             </form>

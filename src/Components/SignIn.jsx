@@ -1,8 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { FaBackward, FaInstagram, FaGoogle, FaTwitter } from "react-icons/fa";
+import axios from "axios";
 
 function SignIn() {   
+  const [username, setusername] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [confirmpassword, setconfirmpassword] = useState("");
+
+  const handleregisterclick = async(e)=>{
+    if(password === confirmpassword){
+       var userName = username.trim();
+       var Email = email.replaceAll(" ", "").toLowerCase().trim();
+        try{
+          e.preventDefault();
+          const registerData = await axios.post('http://localhost:3000/registeruser', {userName, Email, password, confirmpassword});
+          console.log(registerData.data.data);
+        }catch(err){
+          console.log(err);
+        }
+    alert("register successfull."); 
+    }
+    else{
+      alert("register unsuccessfull!! due to password not matching.");
+    }
+    setusername("");
+    setemail("");
+    setpassword("");
+    setconfirmpassword("");
+  }
+
   return (
     <div>
       <div className="registercontainer">
@@ -13,12 +41,12 @@ function SignIn() {
             </div>
             <div className="registerformdiv">
               <form className="registerform">
-                <input className="registerusename" type="text" placeholder="Username"/>
-                <input className="registeremail" type="text" placeholder="Email" />
-                <input className="registerpassword" type="password" placeholder="Password"/>
-                <input className="registerconfirmpassword" type="password" placeholder="Confirm Password" />
+                <input className="registerusename" type="text" placeholder="Username" value={username} onChange={(e)=>setusername(e.target.value)}/>
+                <input className="registeremail" type="text" placeholder="Email" value={email} onChange={(e)=>setemail(e.target.value)}/>
+                <input className="registerpassword" type="password" placeholder="Password" value={password} onChange={(e)=>setpassword(e.target.value)}/>
+                <input className="registerconfirmpassword" type="password" placeholder="Confirm Password"  value={confirmpassword} onChange={(e)=>setconfirmpassword(e.target.value)}/>
                 <button
-                  className="registerbtn"> Sign In
+                  className="registerbtn" onClick={handleregisterclick}> Sign In
                 </button>
               </form>
 
