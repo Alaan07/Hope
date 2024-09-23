@@ -1,14 +1,34 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBackward, FaInstagram, FaGoogle, FaTwitter } from "react-icons/fa";
+import axios from "axios";
 
 function LogIn() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleloginClick = (e) => {
-    e.preventDefault();
-    console.log(email, password);
+  const updatedEmail = email.replaceAll(" ", "").toLowerCase().trim();
+  const handleloginClick = async(e) => {
+    if((email === '') || (password === '')){
+      alert("fill all the fields")
+    }else{
+      try{
+        e.preventDefault();
+        const logindata = await axios.get(`http://localhost:3000/login/${updatedEmail}/${password}`);
+        if(logindata.data.notfound){
+          alert("not found please register first")
+        }else if(logindata.data.isloginSuccesfull){
+          alert("login successfull")
+          navigate('/', {state:{homeemail: updatedEmail, logedin:true}});
+        }else{
+          alert("login not successfull!! due to wrong credentials ")
+        }
+        console.log(logindata);
+      }catch(err){
+        console.log(err)
+      }
+    }
   };
 
 

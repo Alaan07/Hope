@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
-import { FaBackward, FaInstagram, FaGoogle, FaTwitter } from "react-icons/fa";
+import {Link, useNavigate} from "react-router-dom";
+import {FaBackward, FaInstagram, FaGoogle, FaTwitter } from "react-icons/fa";
 import axios from "axios";
 
 function SignIn() {   
@@ -8,22 +8,32 @@ function SignIn() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
+  const navigate = useNavigate();
 
   const handleregisterclick = async(e)=>{
-    if(password === confirmpassword){
-       var userName = username.trim();
-       var Email = email.replaceAll(" ", "").toLowerCase().trim();
-        try{
-          e.preventDefault();
-          const registerData = await axios.post('http://localhost:3000/registeruser', {userName, Email, password, confirmpassword});
-          console.log(registerData.data.data);
-        }catch(err){
-          console.log(err);
-        }
-    alert("register successfull."); 
-    }
-    else{
-      alert("register unsuccessfull!! due to password not matching.");
+    if((username === '') || (email === '') || (password === '') || (confirmpassword === '')){
+      alert("All the fields must be field")
+    }else{
+      if(password === confirmpassword){
+        var userName = username.trim();
+        var Email = email.replaceAll(" ", "").toLowerCase().trim();
+         try{
+           e.preventDefault();
+           const registerData = await axios.post('http://localhost:3000/registeruser', {userName, Email, password, confirmpassword});
+           if(registerData.data.alreadyexist){
+            alert("already email exits please login or enter new email")
+           }else{
+            console.log(registerData.data.data);
+            alert("register successfull.");
+            navigate("/login");
+           }
+         }catch(err){
+           console.log(err);
+         }
+      }
+      else{
+        alert("register unsuccessfull!! due to password not matching.");
+      }
     }
     setusername("");
     setemail("");
