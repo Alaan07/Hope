@@ -1,14 +1,36 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
 import HopeImage from '../assets/image/hope2.png'
 import Itachi from '../assets/image/itachi.jpg'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
-import { FaBookmark, FaHeart } from 'react-icons/fa'
+import { FaBookmark, FaHeart, FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import VideoFile from '../assets/video/solo.mp4'
 
 
 function Homepage() {
+  const firstcarouselref = useRef();
+  const carouselref =useRef();
+  
+  const handelcarouselclick = (value) => {
+    if(carouselref.current && firstcarouselref.current){
+      const firstcardwidth = firstcarouselref.current.offsetWidth + 36;
+      carouselref.current.scrollLeft += value === 'left' ? -firstcardwidth : firstcardwidth;
+    }
+    
+  };
+   
+//   const dragref = useRef();
+
+//   const dragging = (e) => {
+//     dragref.scrollLeft = e.pageX;
+//   }
+
+// useEffect(()=>{
+//   dragref.current.addEventListener('mousemove', dragging);
+// }, [dragref]);
+  
+
   return (
     <div className='wholehome'>
       <div>
@@ -244,14 +266,408 @@ function Homepage() {
           </div>
 
           <div className='recentProjects'>
-              <div className='recentprojectsHeading'>
-                  <h3 className='recentProjectsTitle'> NEW PROJECTS</h3>
+              <div className='recentprojectsHeading carouseldiv'>
+                  <div className="carouselheading">
+                    <h3 className='recentProjectsTitle'> NEW PROJECTS</h3>
+                    <div className='carouselarows'>
+                          <button  onClick={()=>handelcarouselclick('left')} className='carouselbtn'><FaArrowLeft className='carouselarrow'/></button>
+                          <button  onClick={()=>handelcarouselclick('right')} className='carouselbtn'><FaArrowRight className='carouselarrow'/></button>
+                    </div>
+                  </div>
+                  
+                  <div className='carouselsection'>
+                    <ul className='carouselul' ref={carouselref} >
+                    {/* ***************************************mapfuction for carousel  */}
+                        <li className="carouselcard" ref={firstcarouselref}>
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>1 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>2 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>3 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>4 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>5 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>6 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+                        
+                    </ul>
+
+                  </div>
+              </div>
+              <div>
+
               </div>
 
           </div>
-          <div className='takingoff'>
-              <div className='takingoffHeading'>
-                  <h3 className='takingoffTitle'> TAKING OFF</h3>
+
+
+          <div className='recentProjects'>
+              <div className='recentprojectsHeading carouseldiv'>
+                  <div className="carouselheading">
+                    <h3 className='recentProjectsTitle'> TAKING OFF</h3>
+                    <div className='carouselarows'>
+                          <button  onClick={()=>handelcarouselclick('left')} className='carouselbtn'><FaArrowLeft className='carouselarrow'/></button>
+                          <button  onClick={()=>handelcarouselclick('right')} className='carouselbtn'><FaArrowRight className='carouselarrow'/></button>
+                    </div>
+                  </div>
+                  
+                  <div className='carouselsection'>
+                    <ul className='carouselul' ref={carouselref} >
+                    {/* ***************************************mapfuction for carousel  */}
+                        <li className="carouselcard" ref={firstcarouselref}>
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>1 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>2 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>3 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>4 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>5 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li className="carouselcard">
+                          <div className='carouselvideo'>
+                            <video className='carouselpreviewVideo' controls muted  >
+                                <source src={VideoFile} type='video/mp4'/>
+                              error loading
+                            </video>
+                          </div>
+
+                          <div className='carouselprojectData'>
+                            <div className='carouseldpblock'>
+                              <div className='carouselprojectdp'>
+                                <img className='carouselprofiledp' src={Itachi} alt="bla" />
+                              </div>
+                            </div>
+                            <div className='projectDetails'>
+                              <h3 className='projectTitle'> <FaHeart/>6 the best board game</h3>
+                              <p className='projectName'> BoardGames</p>
+                              <p  className='timeAndfunding'>clock icon, days left, dot 234%funded</p>
+                              <section className='projectDiscription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum earum, nisi pariatur at possimus minima.</section>
+                              <div className='categoryAndlocation'>
+                                  <button>Games</button>
+                                  <button>karnataka, bangalore</button>
+                              </div>
+                            </div>
+                            <div className='carouselbookmarkicon'>
+                              <FaBookmark/>
+                            </div>
+                          </div>
+                        </li>
+                        
+                    </ul>
+
+                  </div>
+              </div>
+              <div>
+
               </div>
 
           </div>
