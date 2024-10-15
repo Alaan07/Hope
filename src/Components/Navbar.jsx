@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Itachi from '../assets/image/itachi.jpg'
+import axios from 'axios'
 
 
 
@@ -10,30 +11,45 @@ function Navbar() {
 
  const [islogined, setislogined] =useState(false)
  const [email, setemail] = useState("")
- const location = useLocation();
+ 
+
   
   useEffect(() => {
    const preload = async()=> {
-    setislogined(location.state.logedin);
-    setemail(location.state.homeemail);
-      console.log(email + "email nav")
-      console.log(islogined + " islogined nav");
+    const localuseremail = localStorage.getItem('useremail')
+    if(localuseremail){
+      const currentUser = await axios.get(`http://localhost:3000/afterlogin/${localuseremail}`);
+      const currentUserData = currentUser.data.user
+      setemail(currentUserData.email);
+      setislogined(currentUserData.islogedin)
+    }
    }
    preload();
-  },[islogined],[email]);
+  },[]);
 
 
   const navigate = useNavigate();
 
   const startprojectclick = () =>{
-    navigate('#')
+    navigate(islogined ? '/startproject' : '/login')
   }
   const loginclick = () =>{
     navigate('/login')
   }
-  const handellogout = () =>{
-    navigate('/')
-    window.location.reload();
+  const handellogout = async() =>{
+    if(islogined){
+      try{
+        const deletelocal = axios.post(`http://localhost:3000/logout/${email}`)
+        localStorage.clear();
+        alert('Logout successfull!')
+        navigate('/')
+        window.location.reload();
+      }catch(err){
+        console.log(err);
+      }
+      
+    }
+    
   }
   const profilemenuhandleclick = () =>{
     document.querySelector('.profilemenu').style.display = "block";
@@ -43,7 +59,6 @@ function Navbar() {
     document.querySelector('.profilemenu').style.display = "none";
     document.querySelector('.outerclickhanderler').style.display = "none"
   }
-
 
   return (
     <div className='navbar'>

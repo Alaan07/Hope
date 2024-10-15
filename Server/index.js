@@ -10,6 +10,26 @@ const port = 3000;
 
 mongoose.connect("mongodb://localhost:27017/Hope")
 
+app.get('/afterlogin/:localuseremail', async(req, res) => {
+    const useremail = req.params.localuseremail;
+    try{
+        const user = await userModel.findOne({email: useremail})
+        return res.json({user});
+        
+    }catch(err){
+        console.log(err);
+    }
+})
+
+app.post('/logout/:email', async(req, res) => {
+    const email = req.params.email;
+    try{
+        const result = await userModel.updateOne({ email: email }, { islogedin: false });
+    }catch(err){
+        console.log(err);
+    }
+})
+
 app.get('/login/:updatedEmail/:password', async(req, res) => {
     const useremail = req.params.updatedEmail;
     const userpassword = req.params.password;
@@ -18,7 +38,8 @@ app.get('/login/:updatedEmail/:password', async(req, res) => {
         if(!userdata){
            return res.json({notfound: true});
         }else if(userdata.password === userpassword){
-           return res.json({isloginSuccesfull: true});
+            await userModel.updateOne({ email: useremail }, { islogedin: true });
+            return res.json({isloginSuccesfull: true});
         }else{
            return res.json({isloginSuccesfull: false});
         }

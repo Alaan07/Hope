@@ -19,12 +19,14 @@ function LogIn() {
         if(logindata.data.notfound){
           alert("not found please register first")
         }else if(logindata.data.isloginSuccesfull){
+          localStorage.setItem('useremail', updatedEmail)
           alert("login successfull")
-          navigate('/', {state:{homeemail: updatedEmail, logedin:true}});
+          navigate('/'
+          // {state:{homeemail: updatedEmail, logedin:true}}
+        );
         }else{
           alert("login not successfull!! due to wrong credentials ")
         }
-        console.log(logindata);
       }catch(err){
         console.log(err)
       }
