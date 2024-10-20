@@ -112,15 +112,8 @@ color: white;
   color: var(--logo-color);
   text-decoration: underline;
 }
-.logoutbtn{
-  border: 0;
-  background-color: transparent;
-  width: 100%;
-  font-size: 1rem;
-  color: var(--normal-text-clr);
-  padding: 10px 10px;
-}
-.logoutbtn:hover{
+
+.logoutlink:hover{
   color: red;
   text-decoration: underline;
 }
@@ -132,11 +125,17 @@ color: white;
   padding-bottom: 5px;
 }
 
-.categoryList li{
+.categoryList .navcatitem{
   margin: 0 20px;
   list-style-type: none;
   font-weight: 500;
   font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navcatitem:hover{
+  color: var(--logo-color);
+  text-decoration: underline;
 }
 
 .btn{

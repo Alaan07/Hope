@@ -11,11 +11,20 @@ import VideoFile from '../assets/video/solo.mp4'
 function Homepage() {
   const firstcarouselref = useRef();
   const carouselref =useRef();
+  const firstcarouselreftakeoff = useRef();
+  const carouselreftakeoff =useRef();
+
   
   const handelcarouselclick = (value) => {
     if(carouselref.current && firstcarouselref.current){
       const firstcardwidth = firstcarouselref.current.offsetWidth + 36;
       carouselref.current.scrollLeft += value === 'left' ? -firstcardwidth : firstcardwidth;
+    }
+  };
+  const handelcarouselclicktakeoff = (value) => {
+    if(carouselreftakeoff.current && firstcarouselreftakeoff.current){
+      const firstcardwidth = firstcarouselreftakeoff.current.offsetWidth + 36;
+      carouselreftakeoff.current.scrollLeft += value === 'left' ? -firstcardwidth : firstcardwidth;
     }
     
   };
@@ -267,8 +276,8 @@ function Homepage() {
 
           <div className='recentProjects'>
               <div className='recentprojectsHeading carouseldiv'>
-                  <div className="carouselheading">
-                    <h3 className='recentProjectsTitle'> NEW PROJECTS</h3>
+              <div className="carouselheading">
+                    <h3 className='recentProjectsTitle'> RECENT PRJECTS</h3>
                     <div className='carouselarows'>
                           <button  onClick={()=>handelcarouselclick('left')} className='carouselbtn'><FaArrowLeft className='carouselarrow'/></button>
                           <button  onClick={()=>handelcarouselclick('right')} className='carouselbtn'><FaArrowRight className='carouselarrow'/></button>
@@ -474,15 +483,15 @@ function Homepage() {
                   <div className="carouselheading">
                     <h3 className='recentProjectsTitle'> TAKING OFF</h3>
                     <div className='carouselarows'>
-                          <button  onClick={()=>handelcarouselclick('left')} className='carouselbtn'><FaArrowLeft className='carouselarrow'/></button>
-                          <button  onClick={()=>handelcarouselclick('right')} className='carouselbtn'><FaArrowRight className='carouselarrow'/></button>
+                          <button  onClick={()=>handelcarouselclicktakeoff('left')} className='carouselbtn'><FaArrowLeft className='carouselarrow'/></button>
+                          <button  onClick={()=>handelcarouselclicktakeoff('right')} className='carouselbtn'><FaArrowRight className='carouselarrow'/></button>
                     </div>
                   </div>
                   
                   <div className='carouselsection'>
-                    <ul className='carouselul' ref={carouselref} >
+                    <ul className='carouselul' ref={carouselreftakeoff} >
                     {/* ***************************************mapfuction for carousel  */}
-                        <li className="carouselcard" ref={firstcarouselref}>
+                        <li className="carouselcard" ref={firstcarouselreftakeoff}>
                           <div className='carouselvideo'>
                             <video className='carouselpreviewVideo' controls muted  >
                                 <source src={VideoFile} type='video/mp4'/>

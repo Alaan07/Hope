@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import userModel from './models/user.js';
+import jwt from 'jsonwebtoken'
 
 const app = express();
 app.use(cors());
@@ -39,6 +40,7 @@ app.get('/login/:updatedEmail/:password', async(req, res) => {
            return res.json({notfound: true});
         }else if(userdata.password === userpassword){
             await userModel.updateOne({ email: useremail }, { islogedin: true });
+            // const accestToken = jwt.sign({ email: useremail}, process.env.REACT_APP_accessToken)
             return res.json({isloginSuccesfull: true});
         }else{
            return res.json({isloginSuccesfull: false});

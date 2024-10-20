@@ -85,8 +85,8 @@ function Navbar() {
                             <li><Link className='profilemenuitem'> Messages </Link></li>
                             <li><Link className='profilemenuitem'> Settings </Link></li>
                             <li><Link className='profilemenuitem'> Projects </Link></li>
+                            <li className = "logoutbtn" onClick={handellogout}><Link className='profilemenuitem logoutlink'> Logout </Link></li>
                           </ul>
-                         <button className = "logoutbtn" onClick={handellogout}>Logout</button>
                       </div>
                       <div className='outerclickhanderler' onClick={outterclick}></div>
                     </div>) : (<button onClick={loginclick} className='btn'><Link className='navLoginlink'>Login</Link></button>)
@@ -96,15 +96,15 @@ function Navbar() {
       </div>
       <div className='category'>
             <ul className='categoryList'>
-                <li>Art</li>
-                <li>Comics</li>
-                <li>Design</li>
-                <li>Film</li>
-                <li>Games</li>
-                <li>Publishing</li>
-                <li>Technology</li>
-                <li>Music</li>
-                <li>Food</li>
+                <li className='navcatitem'>Art</li>
+                <li className='navcatitem'>Comics</li>
+                <li className='navcatitem'>Design</li>
+                <li className='navcatitem'>Film</li>
+                <li className='navcatitem'>Games</li>
+                <li className='navcatitem'>Publishing</li>
+                <li className='navcatitem'>Technology</li>
+                <li className='navcatitem'>Music</li>
+                <li className='navcatitem'>Food</li>
             </ul>
       </div>
     </div>
