@@ -831,3 +831,66 @@ object-fit: cover;
   padding: 5px;
   text-align: center;
 }
+/* ***************************************** projectpage */
+.projectpageheader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.projectpagehead{
+  font-size: 3rem;
+}
+.projectcaptcha{
+  font-size: 2.5rem;
+  font-family: var(--logo-font);
+  color: rgb(61, 100, 61);
+}
+.proectstartbtn{
+  width: 12em;
+  height: 2em;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid rgb(22, 136, 22);
+  color: white;
+  background-color: rgb(58, 173, 58);
+  font-weight: 700;
+}
+.proectstartbtn:hover{
+  background-color: rgb(22, 136, 22);
+  transform: scale(1.1);
+  transition: transform .3s ease;
+}
+.projectpagebannner{
+  width: 100%;
+  background-color: #034752;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bannerdiv{
+  width: 75%;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.fillerdiv{
+  width: 65%;
+}
+.bannerP{
+  width: 100%;
+  line-height: 1.5;
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+}
+.bannerauther{
+  font-size: 1.4rem;
+  color: rgb(202, 201, 201);
+  font-weight: 500;
+  float: left;
+}

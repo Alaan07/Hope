@@ -31,18 +31,38 @@ function StartProject() {
   
   return (
     <div className='projectpage'>
+    
       <div>
         <Navbar/>
       </div>
 
-      <div className='projectpagebody'>
-
+      <div className='projectpagebody homePageBody'>
+      <div className='projectpagelayout bodylayout'>
+          <div className="projectpageheader">
+            <h1 className='projectpagehead homeHeading'>
+              Bring your <br /><span className='projectcaptcha'>DREAMS</span>, <span className='projectcaptcha'>CREATIVITY</span>, <span className='projectcaptcha'>HOPE</span> <br /> to life
+            </h1>
+            <button className='proectstartbtn'>Start Project</button>
+          </div>
+        </div>
       </div>
+
+        <div className="projectpagebannner">
+        <div className="bannerdiv">
+        <div className='fillerdiv'>
+          <p className='bannerP'>"We see Hope as a home for creative minds and a wonderful platform: where people who belive, respect, and see the vision can support an indea and make it a reality."
+          <br />
+          <br />
+          <span className='bannerauther'>- Madara</span>
+          </p>
+          </div>
+        </div>    
+        </div>
+
 
       <div>
         <Footer/>
       </div>
-
     </div>
   )
 }

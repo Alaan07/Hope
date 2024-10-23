@@ -29,15 +29,6 @@ function Homepage() {
     
   };
    
-//   const dragref = useRef();
-
-//   const dragging = (e) => {
-//     dragref.scrollLeft = e.pageX;
-//   }
-
-// useEffect(()=>{
-//   dragref.current.addEventListener('mousemove', dragging);
-// }, [dragref]);
   
 
   return (
